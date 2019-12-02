@@ -12,15 +12,20 @@ const getMillisFromBpm = (bpm: number) => {
 
 const Counter = (props: CounterProps) => {
   const delay = getMillisFromBpm(props.bpm)
+  const [isBlue, setBlue] = React.useState(false);
 
   React.useEffect(()=> {
-    const intervalHandle = setInterval(()=> console.log('update'), delay)
+    const intervalHandle = setInterval(()=> {
+      console.log('update');
+      setBlue(i=>!i);
+    }, delay)
 
     return ()=>clearInterval(intervalHandle)
+    
 
   }, [delay])
 
-  return null
+  return <div style={{backgroundColor: isBlue ? '#0000ff' : '#ff0000'}}>Hello</div>
 
 
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import './App.css';
 
 import Counter from './components/counter'
+import BpmPicker from './components/bpm-picker'
+
 
 const DEFAULT_BPM = 30
 
@@ -10,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <Counter bpm={bpm}/>
+      <BpmPicker bpm={bpm} onChange={setBpm}/>
     </div>
   );
 }
